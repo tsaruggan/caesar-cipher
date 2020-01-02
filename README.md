@@ -5,9 +5,8 @@ A tool for encrypting, decrypting and hacking the Caesar cipher 🦝
 1.  [Problem](#PROBLEM)
 2.  [Development](#DEVELOPMENT)
 3.  [Algorithm](#ALGORITHM)
-4.  [Documentation](#DOCUMENTATION)
-5.  [Testing](#TESTING)
-6.  [Reflection](#REFLECTION)
+4.  [Testing](#TESTING)
+5.  [Reflection](#REFLECTION)
 
 ### Problem <a name = "PROBLEM"></a>
 The Caesar Cipher is one of the earliest forms of encryption named after Julius Caesar who
@@ -152,6 +151,24 @@ word and award points based on the length of the containing word.
 The message with the most matches is returned as the most probable message. Each of the 26 cases
 performs over 58 000 evaluations resulting in a total over 1.5 million evaluations making the software
 somewhat slow.  
+
+### Testing <a name = "TESTING"></a>
+**Shifitng Accuracy**  
+To test the shift function, the key was taken as input and outputted the transformed alphabet. Also tested
+extreme cases of negative keys and large keys and was still effective.  
+
+```  
+Input: 2
+Output: [C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, A, B]
+
+Input: -4
+Output: [W, X, Y, Z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V]
+
+Input: 30
+Output: [E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, A, B, C, D]  
+```  
+
+
 
 
 
