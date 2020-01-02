@@ -153,7 +153,7 @@ performs over 58 000 evaluations resulting in a total over 1.5 million evaluatio
 somewhat slow.  
 
 ### Testing <a name = "TESTING"></a>
-**Shifitng Accuracy**  
+**Shifitng Accuracy:**  
 To test the shift function, the key was taken as input and outputted the transformed alphabet. Also tested
 extreme cases of negative keys and large keys and was still effective.  
 
@@ -167,6 +167,37 @@ Output: [W, X, Y, Z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T,
 Input: 30
 Output: [E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, A, B, C, D]  
 ```  
+**Encryption/Decryption Accuracy:**  
+To test the encryption and decryption functions, a message and key were taken as input and outputted the encrypted message followed by the decrypted message. The testing cases used were made to sure to experiment with all letters and punctuation to be cleaned. The shifted alphabet was also outputted as a reference.  
+```  
+Input: 
+Message: The quick brown fox jumps over the lazy dog
+Key: 4
+
+Output: 
+[E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, A, B, C, D]
+Encrypted message:XLIUYMGOFVSARJSBNYQTWSZIVXLIPEDCHSK
+Decrypted message:THEQUICKBROWNFOXJUMPSOVERTHELAZYDOG
+
+Input: 
+Message: THe ROMANS ARE INVADING! SEND 100 MEN!
+Key: 100
+
+Output: 
+[W, X, Y, Z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V]
+Encrypted message:PDANKIWJOWNAEJRWZEJCOAJZIAJ
+Decrypted message:THEROMANSAREINVADINGSENDMEN
+
+Input: 
+Message: C1L$E0O?P&A%T8R#A
+Key: -1
+
+Output: 
+[Z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y]
+Encrypted message:BKDNOZSQZ
+Decrypted message:CLEOPATRA  
+```  
+
 
 
 
