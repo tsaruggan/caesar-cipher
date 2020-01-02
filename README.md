@@ -272,6 +272,26 @@ It is notable that the longer the message, the more likely the hack to be succes
 
 ![Graph of results](https://github.com/tsaruggan/caesar-cipher/blob/master/assets/img2.png)  
 
+### Reflection <a name = "REFLECTION"></a>  
+
+In conclusion, the project was a success and met, if not passed all requirements. Some of the features
+that make my software unique from other programs is its robust design against throwing system errors,
+user navigation using switch statements, ability to test hacking for time efficiency and export results to an organized Excel file.  
+
+Some of the recent updates made were to create methods that would validate user input before passing
+values into the functional methods. This allowed for a more robust user experience as error messages
+specifically state what was wrong with the user input and directed the user to restart. After experimenting with shorter word lists I realized that my algorithm wasn't causing the long wait but rather the length of the word list itself. 
+
+This project introduced me to some new concepts in C# and explore advanced programming
+techniques. This was my first time producing a class strictly for testing purposes and allowed me to create
+a template for data to be presented; this experience was invaluable as the technique proves to be used in
+the software engineering industry for testing software. Although I have experience in reading from an
+external file, I learned to create a method that would write to an Excel spreadsheet. In addition, this project was a
+refresher on key C# principles like string regex, arrays and loop structures.  
+
+Overall, the Caesar Cipher task was an excellent learning opportunity and I am excited to work on future
+projects with string manipulation.
+
 
 
 
