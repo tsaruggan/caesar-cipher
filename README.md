@@ -2,10 +2,12 @@
 A tool for encrypting, decrypting and hacking the Caesar cipher 🦝
 
 ### Contents
-1. #### [Problem](#PROBLEM)
-2.
-3.
-4.
+1.  [Problem](#PROBLEM)
+2.  [Development](#DEVELOPMENT)
+3.  [Algorithm](#ALGORITHM)
+4.  [Documentation](#DOCUMENTATION)
+5.  [Testing](#TESTING)
+6.  [Reflection](#REFLECTION)
 
 ### Problem <a name = "PROBLEM"></a>
 The Caesar Cipher is one of the earliest forms of encryption named after Julius Caesar who
