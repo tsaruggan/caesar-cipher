@@ -79,8 +79,36 @@ original alphabet and when it reaches the end, the marker is reset to 0, ‘A’
 Encrypting the message is rather simple but first requires the message to be cleaned of non-letter
 characters and converted to capital letters. After the shift method is called, the encryption function uses a
 for-loop to first take each letter in the message and find its index in the original alphabet. Next, the letter in
-the shifted alphabet of corresponding index is appended to the encrypted message. Before returning the
-finished encrypted message, the chunking method is applied.
+the shifted alphabet of corresponding index is appended to the encrypted message.  
+
+```C#  
+            String encryptedMsg = ""; // initialize encrypted message
+            message = Regex.Replace(message, "[^a-zA-Z]", "").ToUpper();  // remove all non letter characters from string +  make upper case
+            shift(key); // applies shift to alphabet by given key
+
+            // for each letter in message, swap with corresponding letter in new alphabet
+            for (int x = 0; x < (message.Length); x++)
+            {
+                int index = 0; // index value of original alphabet
+                bool check = false;
+
+                // loops until the index of the letter in original alpha is found for single letter in message
+                while (!check)
+                {
+                    String currentLetter = message[x].ToString(); // hold current letter of message
+                    if (string.Compare(currentLetter, alphabet[index]) == 0)
+                    { // compare if letter in message matches letter in alpha of current index
+                        check = true; // if found, break loop
+                        encryptedMsg = encryptedMsg + shiftedAlphabet[index]; // add the letter from the corresponding index of new alpha
+                    }
+                    else
+                    {
+                        index++; // if not found, add to index and check again
+                    }
+                }
+            }
+            return encryptedMsg;  
+```
 
 
 
