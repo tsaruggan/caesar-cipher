@@ -264,6 +264,18 @@ Testing the efficiency of the hacking method involved creating another Testing c
             exportToExcel(results, outputFilename); //export results to excel
             Console.WriteLine($"Testing is complete. Results saved as: {outputFilename}");  
 ```  
+This is the resulting generated excel file. Successful hacks are filled green while unsuccessful hacks are filled red.  
+
+![Excel spreadsheet of results](https://github.com/tsaruggan/caesar-cipher/blob/master/assets/img1.png)  
+
+It is notable that the longer the message, the more likely the hack to be successful in addition to having a linear relationship with time to hack and length of message. This is better illustrated with a graph.  
+
+![Graph of results](https://github.com/tsaruggan/caesar-cipher/blob/master/assets/img2.png)  
+
+
+
+
+
 
 
 
