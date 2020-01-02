@@ -197,6 +197,38 @@ Output:
 Encrypted message:BKDNOZSQZ
 Decrypted message:CLEOPATRA  
 ```  
+**Effectiveness of Hacking:**  
+Testing of the hacking method involves inputting an encrypted phrase and outputting the most probable decryption without knowing the key. We can first encrypt a phrase and then input it to ensure the function is checking all possible cases.  
+```  
+Message: Chicken and Waffles
+Encrypted Message: MRSMUOXKXNGKPPVOC
+
+Input: MRSM UOXKXNG KPPVOC
+Output: CHICKENANDWAFFLES
+
+Message: computer science
+Encrypted Message: IUSVAZKXYIOKTIK
+
+Input: IU SVAZK XYIOKTIK
+Output: COMPUTERSCIENCE  
+```  
+Now we can stop encrypting input first and experiment with recognizing words in more complex strings. Surprisingly, the method detects unique proper nouns like names perhaps because they are composed of smaller, real words. If it outputs the same phrase, then we know it recognizes it as the most probable case.  
+```  
+Input: DWALIN BALIN KILI FILI DORI NORI ORI OIN GLOIN BIFUR BOFUR BOMBUR AND THORIN
+Output: DWALINBALINKILIFILIDORINORIORIOINGLOINBIFURBOFURBOMBURANDTHORIN
+
+Input: QUANTUM ENTANGLEMENT
+Output: QUANTUMENTANGLEMENT  
+```  
+However, this hacking technique is occasionally flawed when it the true encrypted message is an unusual string or the odd chance that another case retrieves more points.The input is not recognized as the most probable case and instead outputs another case that we can reasonably understand being likely since it contains real words.  
+```  
+Input: CLEOPATRA
+Output:VEXHITMKT
+
+Input: SZECHUAN SAUCE
+Output:YFKINAGTYGAIK  
+```
+
 
 
 
