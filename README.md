@@ -32,3 +32,24 @@ hacking an encrypted message of an unknown key. Allow for testing of the hacking
 | Error Handling/User Interface | -used try-catch and occasional conditional statements to<br>determine if input was valid or error was thrown<br>-worked on bettering user experience in console | 10 |
 | Documentation/Report | -comments, API, and explanations to code<br>-graphed data, formatted report and reflected on project | 6 |
 
+**Analysis:**  
+The problem can be broken down into three parts, encryption/decryption, hacking and testing.
+
+*Encryption/Decryption*
+- How can I use a loops and arrays to shift the alphabet by a key?
+- What is the easiest way to compare letters in the message to corresponding alphabet?
+- How do I avoid IndexOutOfBounds errors when checking each letter?
+- Is decryption method the same as encryption but switching alphabet?
+- Is it possible to add spaces between the words in the decrypted message?
+
+*Hacking*
+- How do I check if a string contains a word?
+- Is it necessary to check all possible cases?
+- How do I assess the correct solution if multiple cases contain words?
+
+*Testing*
+- How do I read from a .txt file?
+- What library allows to format and export data into an Excel file?
+- How to check if hacking successfully decrypted the unknown message?
+
+
