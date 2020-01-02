@@ -50,6 +50,39 @@ The problem can be broken down into three parts, encryption/decryption, hacking 
 *Testing*
 - How do I read from a .txt file?
 - What library allows to format and export data into an Excel file?
-- How to check if hacking successfully decrypted the unknown message?
+- How to check if hacking successfully decrypted the unknown message?  
+
+### Algorithm <a name = "ALGORITHM"></a>  
+
+The shift function involves first taking the key parameter and ensuring it is within range of 0-26. A
+negative shift is equivalent to a positive shift by adding 26 whereas a large number shift can be simplified
+by dividing by 26 and finding the remainder. The shift algorithm uses a for-loop to assign values to the
+global array holding the shifted alphabet; the key is used as a marker for the current position in the
+original alphabet and when it reaches the end, the marker is reset to 0, ‘A’ and continues.  
+
+```C#
+            // if key shifts alphabet one or more times, simplify to shift less than 26 char
+            if (key > 26 || key < -26) { key = key % 26; }
+
+            // if key is negative, simplify to positive
+            if (key < 0) { key = 26 + key; }
+
+            int current = key; // current is index of the starting char wanted for new alphabet
+            for (int i = 0; i < alphabet.Length; i++)
+            {
+                shiftedAlphabet[i] = alphabet[current]; // set characters for new alphabet
+                current++;
+                if (current > 25) { current = 0; }// if end of alphabet is reached, reset index back to 'A'
+            }
+```
+
+Encrypting the message is rather simple but first requires the message to be cleaned of non-letter
+characters and converted to capital letters. After the shift method is called, the encryption function uses a
+for-loop to first take each letter in the message and find its index in the original alphabet. Next, the letter in
+the shifted alphabet of corresponding index is appended to the encrypted message. Before returning the
+finished encrypted message, the chunking method is applied.
+
+
+
 
 
