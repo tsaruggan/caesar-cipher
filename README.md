@@ -227,7 +227,44 @@ Output:VEXHITMKT
 
 Input: SZECHUAN SAUCE
 Output:YFKINAGTYGAIK  
-```
+```  
+**Accuracy/Efficiency of Hacking**  
+Testing the efficiency of the hacking method involved creating another Testing class that would encrypt phrases from a text file, keep record of the time it takes to hack it and then outputting the results in a tabular formatted Excel spreadsheet. The input is accepted as a list of words/phrases in a text file (.txt) and using the *EPPlus* library for C# to format and output testing results into Excel (.xlsx).  
+```C#  
+            List<String> testMessagesList = loadTestMessages(inputFilename); //store cleaned messages from given text file (.txt)
+            String[,] results = new String[testMessagesList.Count,3]; // create multidimensional string array to hold results
+
+            Random random = new Random();
+            Stopwatch stopwatch = new Stopwatch();
+
+            Console.Clear();
+            Console.WriteLine("Please wait until testing is complete...");
+
+            for (int index  = 0; index < testMessagesList.Count; index++) //for each message 
+            {
+                String message = testMessagesList[index]; //store current message 
+                String length = message.Length.ToString(); //store length of current message
+
+                int key = random.Next(1, 27); //generate random key
+                String encrypted = Program.encrypt(message, key); //encrypt current message using key
+
+                stopwatch.Start(); //start stopwatch
+                String hacked = Program.hack(encrypted); //hack encrypted message
+                stopwatch.Stop(); //stop stopwatch
+
+                String time = Math.Round(stopwatch.Elapsed.TotalSeconds, 2).ToString(); //store time in seconds
+                stopwatch.Reset(); //reset timer
+
+                String success = (message == hacked).ToString(); //check if hack was succesful and store boolean
+
+                results[index, 0] = length;
+                results[index, 1] = time;
+                results[index, 2] = success;
+            }
+            exportToExcel(results, outputFilename); //export results to excel
+            Console.WriteLine($"Testing is complete. Results saved as: {outputFilename}");  
+```  
+
 
 
 
