@@ -53,7 +53,7 @@ The problem can be broken down into three parts, encryption/decryption, hacking 
 - How to check if hacking successfully decrypted the unknown message?  
 
 ### Algorithm <a name = "ALGORITHM"></a>  
-
+**Shift:**  
 The shift function involves first taking the key parameter and ensuring it is within range of 0-26. A
 negative shift is equivalent to a positive shift by adding 26 whereas a large number shift can be simplified
 by dividing by 26 and finding the remainder. The shift algorithm uses a for-loop to assign values to the
@@ -74,8 +74,8 @@ original alphabet and when it reaches the end, the marker is reset to 0, ‘A’
                 current++;
                 if (current > 25) { current = 0; }// if end of alphabet is reached, reset index back to 'A'
             }
-```
-
+```  
+**Encryption/Decryption:**  
 Encrypting the message is rather simple but first requires the message to be cleaned of non-letter
 characters and converted to capital letters. After the shift method is called, the encryption function uses a
 for-loop to first take each letter in the message and find its index in the original alphabet. Next, the letter in
@@ -108,7 +108,54 @@ the shifted alphabet of corresponding index is appended to the encrypted message
                 }
             }
             return encryptedMsg;  
-```
+```  
+The decryption method follows the same routine except the roles of the original alphabet array and the
+shifted alphabet array are swapped. The loop takes a letter in the message and finds its index in the
+shifted alphabet then appends the corresponding letter from the original alphabet to the decrypted
+message.  
+
+**Hacking:**  
+Hacking an encrypted message involves checking each of the 26 possible decrypted cases and
+assessing the most probable message. The hacking method applies a nested loop to first decrypt each
+case and then comb through the a text file containing a word list of 58,000 + words and see if the message contains each
+word and award points based on the length of the containing word.  
+
+```C#  
+            String hackedMsg = ""; // initialize hacked message
+            int topMatches = 0; // the most words found within a decrypted message
+
+            // for each possible message, check the number of real words exist it contains and compare
+            for (int key = 0; key < 26; key++)
+            {
+                int matches = 0; // number of match points for current decrypted message
+                try
+                {
+                    System.IO.StreamReader file = new System.IO.StreamReader(Path.Combine(Environment.CurrentDirectory, wordListFileName));
+                    String word; // read from file of over 58 000 english words
+
+                    // loop for every word in .txt file
+                    while ((word = file.ReadLine()) != null)
+                    {
+                        // check if decrypted msg contains word
+                        if (decrypt(encryptedMsg, key).Contains(word)) { matches += word.Length; } // if word exists, award match points depending on length of matching word  
+                    }
+
+                    if (matches > topMatches)
+                    { // if word has most match points, becomes the most probable message
+                        topMatches = matches;
+                        hackedMsg = decrypt(encryptedMsg, key); // set hacked message to word with top matche points
+                    }
+
+                }
+                catch (System.IO.FileNotFoundException)  
+```  
+The message with the most matches is returned as the most probable message. Each of the 26 cases
+performs over 58 000 evaluations resulting in a total over 1.5 million evaluations making the software
+somewhat slow.  
+
+
+
+
 
 
 
