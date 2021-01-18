@@ -272,7 +272,6 @@ It is notable that the longer the message, the more likely the hack to be succes
 
 ![Graph of results](https://github.com/tsaruggan/caesar-cipher/blob/master/assets/img2.png)  
 
-The algorithm takes **linear time** therefore it has a time-complexity of **O(n)**. 
 
 ### Reflection <a name = "REFLECTION"></a>  
 
